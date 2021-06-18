@@ -1,6 +1,6 @@
 export class CreateStoreDto {
-    readonly id:number;
-    readonly name:string;
-    readonly description:string;
-    readonly rating:number;
+    id:number;
+    name:string;
+    description:string;
+    rating:number;
 } 
