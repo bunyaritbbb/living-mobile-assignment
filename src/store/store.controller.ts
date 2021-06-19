@@ -17,8 +17,8 @@ export class StoreController {
 
   @Get()
   async findAll() {
-    const users = await this.storeService.findAll();
-    return users;
+    const store = await this.storeService.findAll();
+    return store;
   }
 
   @Get(':id')
