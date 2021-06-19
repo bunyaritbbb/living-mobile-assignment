@@ -21,5 +21,41 @@ export class MenuService {
     return this.menuRepo.findAll();
   }
 
+  findOne(id: string): Promise<Menu> {
+    return this.menuRepo.findOne({
+      where: {
+        id,
+      },
+    });
+  }
+
+  async remove(id: string): Promise<Menu> {
+    const menu = this.menuRepo.findOne({
+      where: {
+        id,
+      },
+    });
+
+    (await menu).destroy()
+    return
+  }
+
+  async update(id: string, newData): Promise<Menu>{
+
+    const menu = await this.menuRepo.findOne({
+      where: {
+        id,
+      },
+    });
+
+    menu.name = newData.name;
+    menu.categoryId = newData.categoryId;
+    menu.price = newData.price;
+
+    menu.save()
+
+    return
+  }
+
    
 }
